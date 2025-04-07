@@ -1,0 +1,21 @@
+@media only screen and (max-width: 600px) and (min-width: 200px){
+
+    .headercontainer{
+
+        display: none;
+
+    }
+
+    
+}
+
+@media only screen and (min-width: 1000px){
+
+    .responsiverheader {
+    
+        display: none;
+    
+    }
+
+
+}

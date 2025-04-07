@@ -1,0 +1,208 @@
+*{
+
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+::selection{
+
+    background-color: #1a1a1a;
+    color: #fff;
+
+}
+
+body{
+
+    background-color: #ffffff;
+
+}
+
+.headercontainer{
+
+    width: 100%;
+    height: 200px;
+    position: fixed;
+    z-index: 99999999;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    /* background-color: aqua; */
+
+}
+
+.headercontainer > .header{
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.header > .box{
+
+    width: 500px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+
+}
+
+.header > .box1{
+
+    display: flex;
+    gap: 20px;
+
+}
+
+i{
+
+    font-size: 20px;
+    cursor: pointer;
+
+}
+
+p{
+
+    cursor: pointer;
+
+}
+
+.header > .box3{
+
+    display: flex;
+    gap: 20px;
+
+}
+
+.mobileheadercontainer{
+
+    width: 100%;
+    height: 100vh;
+    background-color: #ffffff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    /* display: none; */
+
+}
+
+.mobileheadercontainer > .mobileheader{
+
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+}
+
+.mobileheader > i{
+
+    position: absolute;
+    right: 20px;
+    top: 35px;
+    font-size: 30px;
+    color: #1a1a1a;
+
+
+}
+
+.mobileheader > a img{
+
+    position: absolute;
+    left: 10px;
+    top: 25px;
+    width: 200px;
+
+}
+
+.mobilesubmenu > nav{
+
+    position: absolute;
+    top: 15%;
+    left: 20px;
+
+}
+
+nav > ul{
+
+    list-style-type: none;
+    line-height: 60px;
+    font-size: 20px;
+
+}
+
+.mobilesubmenu > .sociallinks{
+
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+
+}
+
+.sociallinks > a{
+
+    text-decoration: none;
+    margin-right: 20px;
+
+}
+
+.sociallinks > a i{
+
+    font-size: 30px;
+    color: #1a1a1a;
+
+}
+
+.responsiverheader{
+
+    width: 100%;
+    height: 100px;
+
+}
+
+.responsiverheader > .responsive{
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+}
+
+.responsive > .rbox{
+
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+
+}
+
+.rbox1 > a img{
+
+    width: 150px;
+
+}
+
+.responsive > .rbox2{
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10px;
+
+}
+
+.rbox2 > i{
+
+    font-size: 30px;
+    cursor: pointer;
+
+}
+
+
