@@ -15,3 +15,17 @@ window.addEventListener("wheel", (e) => {
     }
 
 });
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 500) {
+        
+        videoZoomming.style.opacity = "0.3";
+
+    } else {
+        
+        videoZoomming.style.opacity = "1";
+
+    }
+
+})

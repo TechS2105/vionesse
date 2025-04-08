@@ -7,6 +7,20 @@ let mobileSocialLinks = document.querySelectorAll(
   ".mobileheader .mobilesubmenu .sociallinks a"
 );
 let headerScrollAnimation = document.querySelector(".headercontainer");
+let pcNavMenu = document.querySelector(".pcheadersection");
+let pcSubNavMenu = document.querySelector(".pcheadernav");
+let pcSubNavMenuCloseIcon = document.querySelector(".pcheadernav i");
+let mainHeadeMenuIcon = document.querySelector(".box1 i");
+let mainHeadeMenuText = document.querySelector(".box1 p");
+let pcSubNavAllMenus = document.querySelectorAll(".pcheadernav nav ul li");
+
+for (let subNavMenu of pcSubNavAllMenus) {
+    
+    subNavMenu.style.transform = "translateX(-1000px)";
+    subNavMenu.style.opacity = "0";
+    subNavMenu.style.filter = "blur(10px)";
+
+}
 
 mobileSubmenuLinks.forEach((link) => {
 
@@ -39,6 +53,139 @@ mobileSocialLinks.forEach((sociallink) => {
 
 });
 
+pcNavMenu.style.transform = "translateY(-2000px)";
+pcSubNavMenu.style.transform = "translateY(-2000px)";
+pcSubNavMenu.style.opacity = "0";
+pcSubNavMenuCloseIcon.style.transform = "translateX(500px)";
+
+mainHeadeMenuIcon.addEventListener("click", () => {
+
+    pcNavMenu.style.transform = "translateY(0px)";
+    pcNavMenu.style.transition = "all 0.7s ease";
+
+    pcSubNavMenu.style.transform = "translateY(0px)";
+    pcSubNavMenu.style.opacity = "1";
+    pcSubNavMenu.style.transition = "all 0.7s ease 0.5s";
+
+    pcSubNavMenuCloseIcon.style.transform = "translateX(0px)";
+    pcSubNavMenuCloseIcon.style.transition = "all 0.7s ease 1.5s";
+
+    pcSubNavAllMenus[0].style.transform = "translateX(0px)";
+    pcSubNavAllMenus[0].style.opacity = "1";
+    pcSubNavAllMenus[0].style.transition = "all 0.7s ease 1s";
+    pcSubNavAllMenus[0].style.filter = "blur(0px)";
+
+    pcSubNavAllMenus[1].style.transform = "translateX(0px)";
+    pcSubNavAllMenus[1].style.opacity = "1";
+    pcSubNavAllMenus[1].style.transition = "all 0.7s ease 1.1s";
+    pcSubNavAllMenus[1].style.filter = "blur(0px)";
+
+    pcSubNavAllMenus[2].style.transform = "translateX(0px)";
+    pcSubNavAllMenus[2].style.opacity = "1";
+    pcSubNavAllMenus[2].style.transition = "all 0.7s ease 1.2s";
+    pcSubNavAllMenus[2].style.filter = "blur(0px)";
+
+    pcSubNavAllMenus[3].style.transform = "translateX(0px)";
+    pcSubNavAllMenus[3].style.opacity = "1";
+    pcSubNavAllMenus[3].style.transition = "all 0.7s ease 1.3s";
+    pcSubNavAllMenus[3].style.filter = "blur(0px)";
+
+    pcSubNavAllMenus[4].style.transform = "translateX(0px)";
+    pcSubNavAllMenus[4].style.opacity = "1";
+    pcSubNavAllMenus[4].style.transition = "all 0.7s ease 1.4s";
+    pcSubNavAllMenus[4].style.filter = "blur(0px)";
+
+});
+
+// mainHeadeMenuText.addEventListener("click", () => {
+
+//     pcNavMenu.style.transform = "translateY(0px)";
+//     pcNavMenu.style.transition = "all 0.7s ease";
+
+//     pcSubNavMenu.style.transform = "translateY(0px)";
+//     pcSubNavMenu.style.opacity = "1";
+//     pcSubNavMenu.style.transition = "all 0.7s ease 0.5s";
+
+//     pcSubNavMenuCloseIcon.style.transform = "translateX(0px)";
+//     pcSubNavMenuCloseIcon.style.transition = "all 0.7s ease 1.5s";
+
+//     pcSubNavAllMenus[0].style.transform = "translateX(0px)";
+//     pcSubNavAllMenus[0].style.opacity = "1";
+//     pcSubNavAllMenus[0].style.transition = "all 0.7s ease 1s";
+//     pcSubNavAllMenus[0].style.filter = "blur(0px)";
+
+//     pcSubNavAllMenus[1].style.transform = "translateX(0px)";
+//     pcSubNavAllMenus[1].style.opacity = "1";
+//     pcSubNavAllMenus[1].style.transition = "all 0.7s ease 1.1s";
+//     pcSubNavAllMenus[1].style.filter = "blur(0px)";
+
+//     pcSubNavAllMenus[2].style.transform = "translateX(0px)";
+//     pcSubNavAllMenus[2].style.opacity = "1";
+//     pcSubNavAllMenus[2].style.transition = "all 0.7s ease 1.2s";
+//     pcSubNavAllMenus[2].style.filter = "blur(0px)";
+
+//     pcSubNavAllMenus[3].style.transform = "translateX(0px)";
+//     pcSubNavAllMenus[3].style.opacity = "1";
+//     pcSubNavAllMenus[3].style.transition = "all 0.7s ease 1.3s";
+//     pcSubNavAllMenus[3].style.filter = "blur(0px)";
+
+//     pcSubNavAllMenus[4].style.transform = "translateX(0px)";
+//     pcSubNavAllMenus[4].style.opacity = "1";
+//     pcSubNavAllMenus[4].style.transition = "all 0.7s ease 1.4s";
+//     pcSubNavAllMenus[4].style.filter = "blur(0px)";
+
+// });
+
+pcSubNavMenuCloseIcon.addEventListener("click", () => {
+
+    pcSubNavMenu.style.transform = "translateY(-2000px)";
+    pcSubNavMenu.style.transition = "all 0.7s ease 1s";
+    pcSubNavMenu.style.opacity = "0";
+
+    pcNavMenu.style.transform = "translateY(-2000px)";
+    pcNavMenu.style.transition = "all 0.7s ease 1.5s";
+
+    pcSubNavAllMenus[0].style.transform = "translateX(-1000px)";
+    pcSubNavAllMenus[0].style.transition = "all 0.7s ease 0.7s";
+    pcSubNavAllMenus[0].style.opacity = "0";
+    pcSubNavAllMenus[0].style.filter = "blur(10px)";
+
+    pcSubNavAllMenus[1].style.transform = "translateX(-1000px)";
+    pcSubNavAllMenus[1].style.transition = "all 0.7s ease 0.6s";
+    pcSubNavAllMenus[1].style.opacity = "0";
+    pcSubNavAllMenus[1].style.filter = "blur(10px)";
+
+    pcSubNavAllMenus[2].style.transform = "translateX(-1000px)";
+    pcSubNavAllMenus[2].style.transition = "all 0.7s ease 0.5s";
+    pcSubNavAllMenus[2].style.opacity = "0";
+    pcSubNavAllMenus[2].style.filter = "blur(10px)";
+    
+    pcSubNavAllMenus[3].style.transform = "translateX(-1000px)";
+    pcSubNavAllMenus[3].style.transition = "all 0.7s ease 0.4s";
+    pcSubNavAllMenus[3].style.opacity = "0";
+    pcSubNavAllMenus[3].style.filter = "blur(10px)";
+    
+    pcSubNavAllMenus[4].style.transform = "translateX(-1000px)";
+    pcSubNavAllMenus[4].style.transition = "all 0.7s ease 0.3s";
+    pcSubNavAllMenus[4].style.opacity = "0";
+    pcSubNavAllMenus[4].style.filter = "blur(10px)";
+
+});
+
+pcSubNavMenuCloseIcon.addEventListener("mouseover", () => {
+
+    pcSubNavMenuCloseIcon.style.transform = "rotate(-180deg)";
+    pcSubNavMenuCloseIcon.style.transition = "all 0.4s ease";
+
+});
+
+pcSubNavMenuCloseIcon.addEventListener("mouseout", () => {
+
+    pcSubNavMenuCloseIcon.style.transform = "rotate(0deg)";
+    pcSubNavMenuCloseIcon.style.transition = "all 0.4s ease";
+
+});
+
 window.addEventListener('wheel', (e) => {
 
     if (e.deltaY > 0) {
@@ -53,7 +200,7 @@ window.addEventListener('wheel', (e) => {
 
     }
 
-})
+});
 
 navMenu.addEventListener("click", () => {
 
