@@ -299,13 +299,29 @@ let sideMenuContent = document.querySelector(".sidemenucontent").firstElementChi
 let addListClass = sideMenuContent.classList.add("sideMenuText");
 let selectAllMenus = document.querySelectorAll(".sideMenuText li");
 let subMenuIcons = document.querySelectorAll(".sidemenusocialicon ul li");
+let mobileMenuCloseIcon = document.querySelector(".mobilesubmenuimage i");
+let mobileViewMenu = document.querySelector(".mobileviewsubemenu");
+let mobileMenuContent = document.querySelectorAll(
+  ".mobilesubmenu .mobilesubmenucontent ul li"
+);
+let mobileHeaderMenu = document.querySelectorAll(".mobilemenu ul li i");
+
+mobileViewMenu.style.transform = "translateX(-2000px)";
+mobileViewMenu.style.position = "fixed";
+mobileViewMenu.style.transition = "all 1s ease";
+
+for (let mobileContents of mobileMenuContent) {
+    
+    mobileContents.style.transform = "translateX(-2000px)";
+    mobileContents.style.opacity = "0";
+    mobileContents.style.filter = "blur(10px)";
+
+}
 
 for (let allSideMenus of selectAllMenus) {
-    
     allSideMenus.style.transform = "translateX(-500px)";
     allSideMenus.style.filter = "blur(10px)";
     allSideMenus.style.opacity = "0";
-
 }
 
 for (let sideMenuIcons of subMenuIcons) {
@@ -528,4 +544,68 @@ sideMenuCloseIcon.addEventListener("mouseout", () => {
     sideMenuCloseIcon.style.borderTopRightRadius = "0px";
     sideMenuCloseIcon.style.borderBottomLeftRadius = "0px";
 
-})
+});
+
+mobileMenuCloseIcon.addEventListener("click", () => {
+
+    mobileViewMenu.style.transform = "translateX(-2000px)";
+    mobileViewMenu.style.transition = "all 1s ease 0.5s";
+
+    mobileMenuContent[0].style.transform = "translateX(-2000px)";
+    mobileMenuContent[0].style.transition = "all 0.7s ease 0.5s";
+    mobileMenuContent[0].style.opacity = "0";
+    mobileMenuContent[0].style.filter = "blur(10px)";
+
+    mobileMenuContent[1].style.transform = "translateX(-2000px)";
+    mobileMenuContent[1].style.transition = "all 0.7s ease 0.4s";
+    mobileMenuContent[1].style.opacity = "0";
+    mobileMenuContent[1].style.filter = "blur(10px)";
+
+    mobileMenuContent[2].style.transform = "translateX(-2000px)";
+    mobileMenuContent[2].style.transition = "all 0.7s ease 0.3s";
+    mobileMenuContent[2].style.opacity = "0";
+    mobileMenuContent[2].style.filter = "blur(10px)";
+
+    mobileMenuContent[3].style.transform = "translateX(-2000px)";
+    mobileMenuContent[3].style.transition = "all 0.7s ease 0.3s";
+    mobileMenuContent[3].style.opacity = "0";
+    mobileMenuContent[3].style.filter = "blur(10px)";
+
+    mobileMenuContent[4].style.transform = "translateX(-2000px)";
+    mobileMenuContent[4].style.transition = "all 0.7s ease 0.2s";
+    mobileMenuContent[4].style.opacity = "0";
+    mobileMenuContent[4].style.filter = "blur(10px)";
+
+});
+
+mobileHeaderMenu[3].addEventListener("click", () => {
+
+    mobileViewMenu.style.transform = "translateX(0px)";
+
+    mobileMenuContent[0].style.transform = "translateX(0px)";
+    mobileMenuContent[0].style.transition = "all 0.7s ease 0.7s";
+    mobileMenuContent[0].style.opacity = "1";
+    mobileMenuContent[0].style.filter = "blur(0px)";
+
+    mobileMenuContent[1].style.transform = "translateX(0px)";
+    mobileMenuContent[1].style.transition = "all 0.7s ease 0.8s";
+    mobileMenuContent[1].style.opacity = "1";
+    mobileMenuContent[1].style.filter = "blur(0px)";
+
+    mobileMenuContent[2].style.transform = "translateX(0px)";
+    mobileMenuContent[2].style.transition = "all 0.7s ease 0.9s";
+    mobileMenuContent[2].style.opacity = "1";
+    mobileMenuContent[2].style.filter = "blur(0px)";
+
+    mobileMenuContent[3].style.transform = "translateX(0px)";
+    mobileMenuContent[3].style.transition = "all 0.7s ease 1s";
+    mobileMenuContent[3].style.opacity = "1";
+    mobileMenuContent[3].style.filter = "blur(0px)";
+
+    mobileMenuContent[4].style.transform = "translateX(0px)";
+    mobileMenuContent[4].style.transition = "all 0.7s ease 1.1s";
+    mobileMenuContent[4].style.opacity = "1";
+    mobileMenuContent[4].style.filter = "blur(0px)";
+
+});
+

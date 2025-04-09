@@ -250,6 +250,191 @@ i{
 
 }
 
+/** mobile view header */
+.mobileviewheader{
+
+    width: 100%;
+    height: 100px;
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    z-index: 9999999;
+
+}
+
+.mobileviewheader > .mobileheader{
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+}
+
+.mobilelogo{
+
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+}
+
+.mobilelogo a > img{
+
+    width: 150px;
+
+
+}
+
+.mobilemenu{
+
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 5px;
+
+}
+
+.mobilemenu > ul{
+
+    display: flex;
+    list-style-type: none;
+
+}
+
+.mobilemenu ul li > i{
+
+    font-size: 25px;
+    color: #000;
+
+}
+
+.mobilemenu ul li a > i{
+
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 25px;;
+
+}
+
+.mobilemenu ul li > a{
+
+    text-decoration: none;
+    margin-right: 9px;
+
+}
+
+/** Mobile view sub menu */
+.mobileviewsubemenu{
+
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    z-index: 999999999;
+    transform: translateX(-2000px);
+
+}
+
+.mobileviewsubemenu > .mobilesubmenu{
+
+    width: 100%;
+    height: 100%;
+
+}
+
+.mobilesubmenu > .mobilesubmenuimage{
+
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+}
+
+.mobilesubmenuimage > img{
+
+    width: 250px;
+
+}
+
+.mobilesubmenuimage > i{
+
+    font-size: 40px;
+    color: #1a1a1a;
+    font-weight: bolder;
+    cursor: pointer;
+    padding-right: 10px;
+
+}
+
+.mobilesubmenu > .mobilesubmenucontent{
+
+    height: 60%;
+    /* background-color: #1a1a1a; */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+.mobilesubmenucontent > ul {
+
+    list-style-type: none;
+    line-height: 100px;
+    padding-left: 20px;
+
+}
+
+.mobilesubmenucontent > ul li{
+
+    font-size: 30px;
+    position: relative;
+
+}
+
+.mobilesubmenucontent > ul li a{
+
+    color: #1a1a1a;
+    text-decoration: none;
+
+}
+
+.mobilesubmenu > .mobilesubmenusociallinks{
+
+    height: 100%;
+    padding-top: 30px;
+
+}
+
+.mobilesubmenusociallinks > ul {
+
+    display: flex;
+    gap: 20px;
+    list-style-type: none;
+    padding-left: 10px;
+
+}
+
+.mobilesubmenusociallinks > ul li a{
+
+    text-decoration: none;
+
+}
+
+.mobilesubmenusociallinks ul li a > i{
+
+    font-size: 35px;
+    color: #1a1a1a;
+    padding: 5px;
+
+}
+
 /*
 .headercontainer{
 

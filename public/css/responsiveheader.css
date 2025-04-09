@@ -25,3 +25,52 @@
 
 
 } */
+
+
+@media only screen and (max-width: 600px) and (min-width: 200px){
+
+    .headercontainer{
+
+        display: none;
+
+    }
+
+    .sidemenusection{
+
+        display: none;
+
+    }
+
+    .mobileviewheader {
+
+        display: flex;
+
+    }
+
+}
+
+@media only screen and (min-width: 600px){
+
+    .mobileviewheader{
+
+        display: none;
+
+    }
+
+}
+
+@media only screen and (max-width: 1400px){
+
+    .mobileviewheader{
+
+        display: flex;
+
+    }
+
+    .headercontainer{
+
+        display: none;
+
+    }
+
+}
