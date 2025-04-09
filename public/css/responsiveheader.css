@@ -47,11 +47,18 @@
 
     }
 
+
 }
 
 @media only screen and (min-width: 600px){
 
     .mobileviewheader{
+
+        display: none;
+
+    }
+
+    .mobileviewsubemenu{
 
         display: none;
 
