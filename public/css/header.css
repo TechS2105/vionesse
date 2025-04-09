@@ -19,6 +19,238 @@ body{
 
 }
 
+header{
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70px;
+    position: sticky;
+    z-index: 999999;
+    top: 0;
+
+}
+
+header > .box {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #fff;
+
+}
+
+header > .box1{
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    opacity: 0;
+
+}
+
+header > .box2{
+
+    position: relative;
+
+}
+
+.box2 > h1{
+
+    position: absolute;
+    top: 300%;
+    left: 43%;
+    transform: translate(-46%, 20%);
+    font-size: 200px;
+    color: #ffffff;
+    letter-spacing: 30px;
+    /* text-shadow: 2px 2px 5px #000; */
+
+}
+
+header > .box3 ul{
+
+    display: flex;
+    list-style-type: none;
+    gap: 20px;
+    height: 100%;
+
+}
+
+.box3 ul li{
+
+    height: 100%;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+i{
+
+    font-size: 20px;
+    color: #fff;
+
+}
+
+.box3 ul li > a{
+
+    text-decoration: none;
+    font-size: 20px;
+    color: #000;
+
+}
+
+/** Side menu section */
+.sidemenusection{
+
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    right: 0;
+    top: 0;
+    /* z-index: 99999999; */
+    z-index: -9999999;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    /* transform: translateX(2000px); */
+
+}
+
+.sidemenusection > .sidemenu{
+
+    height: 100%;
+    width: 600px;
+    background-color: #ffffff;
+    position: absolute;
+    right: 0;
+    transform: translateX(2000px);
+
+}
+
+.sidemenu > .sidemenuicon{
+
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
+.sidemenuicon > i{
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    margin-right: 20px;
+    color: #ffffff;
+    font-size: 20px;
+    background-color: #000;
+    border-top-left-radius: 30px;
+    font-weight: bolder;
+    border-bottom-right-radius: 30px;
+    cursor: pointer;
+
+}
+
+.sidemenu > .sidemenucontent{
+
+    width: 100%;
+    height: 100%;
+    padding-left: 50px;
+    overflow: hidden;
+
+}
+
+.sidemenucontent > ul{
+
+    list-style-type: none;
+    line-height: 100px;
+
+}
+
+.sidemenucontent > ul li a{
+
+    font-size: 25px;
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+    color: #1a1a1a;
+    display: inline-flex;
+    width: 500px;
+
+}
+
+.sidemenucontent > ul li a::before{
+
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #1a1a1a;
+    content: "";
+    transition: all 1s ease;
+
+}
+
+.sidemenucontent > ul li a:hover::before{
+
+    width: 100%;
+
+}
+
+.sidemenucontent > .sidemenusocialicon{
+
+    width: 80%;
+    height: 50px;
+    border-radius: 50px;
+    margin-top: 50px;
+
+}
+
+.sidemenusocialicon > ul {
+
+    display: flex;
+    align-items: center;
+    height: 100%;
+    list-style-type: none;
+
+}
+
+.sidemenusocialicon ul li a > i{
+
+    font-size: 20px;
+    display: inline-flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    margin-right: 50px;
+    background-color: #1a1a1a;
+    width: 40px;
+    height: 40px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transition: all 0.7s ease;
+
+
+}
+
+.sidemenusocialicon ul li a > i:hover{
+
+    background-color: #ffffff;
+    color: #1a1a1a;
+    transform: scale(1.5);
+
+}
+
+/*
 .headercontainer{
 
     width: 100%;
@@ -28,11 +260,10 @@ body{
     background-color: #fff;
     top: 0;
     left: 0;
-    /* background-color: aqua; */
 
-}
+} */
 
-.headercontainer > .header{
+/* .headercontainer > .header{
 
     width: 100%;
     height: 100%;
@@ -89,11 +320,10 @@ p{
     left: 0;
     top: 0;
     z-index: 999999;
-    /* display: none; */
 
-}
+} */
 
-.mobileheadercontainer > .mobileheader{
+/* .mobileheadercontainer > .mobileheader{
 
     width: 100%;
     height: 100%;
@@ -252,13 +482,10 @@ nav > ul{
     list-style: none;
     font-size: 50px;
     line-height: 100px;
-    /* width: 100%; */
-    /* padding-left: 20px; */
-    /* text-align: center; */
 
-}
+} */
 
-.pcheadernav > nav ul li a {
+/* .pcheadernav > nav ul li a {
 
     text-decoration: none;
     color: #ffffff;
@@ -291,20 +518,19 @@ nav > ul{
 
     width: 100%;
 
-}
+} */
 
-.pcheadernav > i{
+/* .pcheadernav > i{
 
     position: absolute;
     top: 10%;
     right: 5%;
     font-size: 40px;
     border-radius: 50%;
-    /* box-shadow: 2px 2px 20px snow; */
     color: snow;
     padding: 5px;
 
-}
+} */
 
 
 
