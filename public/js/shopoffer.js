@@ -17,55 +17,84 @@ $(shopBoxButtonAnimation).css({
 
 });
 
-$(window).on("scroll", () => {
+if (window.innerWidth < 1300) {
+    1
+    $(shopBoxTextAnimation[0]).css({
 
-    if ($(window).scrollTop() > 200) {
+        transform: "translateY(0px)",
+        transition: "all 0.7s ease"
 
-        $(shopBoxTextAnimation[0]).css({
+    });
 
-            transform: "translateY(0px)",
-            transition: "all 0.7s ease"
+    $(shopBoxTextAnimation[1]).css({
 
-        });
+        transform: "translateY(0px)",
+        transition: "all 0.7s ease 0.1s"
 
-        $(shopBoxTextAnimation[1]).css({
+    });
 
-            transform: "translateY(0px)",
-            transition: "all 0.7s ease 0.5s",
+    $(shopBoxButtonAnimation).css({
 
-        });
+        transform: "translateY(0px)",
+        transition: "all 0.7s ease 0.2s"
 
-        $(shopBoxButtonAnimation).css({
+    })
 
-            transform: "translateY(0px)",
-            transition: "all 0.7s ease 0.6s"
+}
 
-        });
+if (window.innerWidth > 1000) {
 
-    } else {
+    $(window).on("scroll", () => {
 
-        $(shopBoxTextAnimation[0]).css({
+        if ($(window).scrollTop() > 200) {
 
-            transform: "translateY(-500px)",
-            transition: "all 0.7s ease 0.5s",
+            $(shopBoxTextAnimation[0]).css({
 
-        });
+                transform: "translateY(0px)",
+                transition: "all 0.7s ease"
 
-        $(shopBoxTextAnimation[1]).css({
+            });
 
-            transform: "translateY(-500px)",
-            transition: 'all 0.7s ease 0.4s',
+            $(shopBoxTextAnimation[1]).css({
 
-        });
+                transform: "translateY(0px)",
+                transition: "all 0.7s ease 0.5s",
 
-        $(shopBoxButtonAnimation).css({
+            });
 
-            transform: "translateY(-500px)",
-            transition: "all 0.7s ease 0.3s",
+            $(shopBoxButtonAnimation).css({
 
-        });
+                transform: "translateY(0px)",
+                transition: "all 0.7s ease 0.6s"
 
-    }
+            });
 
-})
+        } else {
+
+            $(shopBoxTextAnimation[0]).css({
+
+                transform: "translateY(-500px)",
+                transition: "all 0.7s ease 0.5s",
+
+            });
+
+            $(shopBoxTextAnimation[1]).css({
+
+                transform: "translateY(-500px)",
+                transition: 'all 0.7s ease 0.4s',
+
+            });
+
+            $(shopBoxButtonAnimation).css({
+
+                transform: "translateY(-500px)",
+                transition: "all 0.7s ease 0.3s",
+
+            });
+
+        }
+
+    });
+
+}
 
