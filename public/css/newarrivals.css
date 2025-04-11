@@ -1,0 +1,67 @@
+*{
+
+    margin: 0;
+    padding: 0;
+
+}
+
+body{
+
+    background-color: #ffffff;
+
+}
+
+.newarrivalsection{
+
+    width: 100%;
+    height: 80vh;
+
+}
+
+.newarrivalsection > .newarrival{
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.newarrival > .newarrivalheading{
+
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    letter-spacing: 10px;
+
+}
+
+.newarrival > .arrivalsproductssection{
+
+    height: 80%;
+    width: 100%;
+
+}
+
+.arrivalsproductssection > .arrivalsproduct{
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.arrivalsproductssection > .arrivalsproduct > .box{
+
+    height: 400px;
+    width: 100px;
+    background-color: black;
+
+}
+
