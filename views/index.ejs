@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/image/BLACK BRAND NAME MARK.avif">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/newarrivals.css">
     <title>VIONESSE</title>
 </head>
 <body>
@@ -11,7 +14,56 @@
     <%- include('../views/partials/header.ejs') %>
     <%- include('../views/partials/videoslider.ejs') %>
     <%- include('../views/partials/shopoffer.ejs') %>
-    <%- include('../views/partials/newarrivals.ejs') %>
+   
+    <div class="newarrivalsection">
+
+        <div class="newarrival">
+
+            <div class="newarrivalheading"> 
+
+                <h2> NEW ARRIVALS </h2>
+
+            </div>
+
+            <div class="arrivalsproductssection">
+
+                <div class="arrivalsproduct">
+
+                    <% products.forEach((product) => { %> 
+                    
+                        <div class="box">
+
+                            <div class="productimage">
+
+                                <a href="#"><i class="ri-heart-2-line"></i></a>
+                                <img src="/image/uploads/<%= product.productimage %>" alt="">
+
+                            </div>
+                            <div class="productdetails">
+
+                                <h2><%=product.productname %></h2>
+                                <span>Rs. <%=product.productprice %></span>
+                                <a href="#"><button> Add To Cart </button></a>
+
+                            </div>
+
+                        </div> 
+                    
+                    <% }) %>
+
+                </div>
+
+                <div class="newarrivalbutton">
+
+                    <a href="#"><button>View More Arrivals</button></a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </body>
 </html>

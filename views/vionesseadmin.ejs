@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/vionesseadmin.css">
+</head>
+<body>
+    
+    <div class="adminsection">
+
+        <div class="admin">
+
+            <div class="adminheading">
+
+                <h1> VIONESSE </h1>
+                <a href="#">LOGOUT</a>
+
+            </div>
+
+            <div class="adminpannel">
+
+                <div class="menubar">
+
+                    <ul>
+
+                        <li>ADMIN PROFILE</li>
+                        <li>SLIDER</li>
+                        <li>NEW ARRIVALS</li>
+                        <li>CONTENT</li>
+
+                    </ul>
+
+                </div>
+                <div class="showcasesection">
+
+                    <div class="newarrivals">
+
+                        <div class="imageupdateform">
+
+                            <h2> New Arrival Product Details: </h2><br>
+
+                            <form action="/uploadproductimage" method="post" enctype="multipart/form-data">
+
+                                <input type="file" placeholder="Choose an image" name="productimage" required>
+                                <input type="text" placeholder="Enter Product Name" name="productname" required>
+                                <input type="number" placeholder="Enter Product Price" name="productprice" required>
+                                <input type="submit" value="Submit">
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

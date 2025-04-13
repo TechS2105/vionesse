@@ -2,6 +2,9 @@
 
     margin: 0;
     padding: 0;
+    font-family: Arial,
+        Helvetica,
+        sans-serif;
 
 }
 
@@ -14,7 +17,8 @@ body{
 .newarrivalsection{
 
     width: 100%;
-    height: 80vh;
+    height: 100vh;
+    margin-bottom: 5%;
 
 }
 
@@ -37,6 +41,7 @@ body{
     align-items: flex-end;
     justify-content: center;
     letter-spacing: 10px;
+    margin-bottom: 50px;
 
 }
 
@@ -44,6 +49,75 @@ body{
 
     height: 80%;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+
+}
+
+.arrivalsproductssection > .newarrivalbutton{
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.newarrivalbutton > a button{
+
+    width: 350px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.5s ease;
+
+}
+
+.newarrivalbutton > a button::before{
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #1a1a1a;
+    content: "";
+    transition: all 0.5s ease;
+    z-index: -2;
+
+}
+
+.newarrivalbutton > a button::after{
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #1a1a1a;
+    content: "";
+
+}
+
+.newarrivalbutton > a button:hover{
+
+    color: snow;
+
+}
+
+.newarrivalbutton > a button:hover::before{
+
+    height: 100%;
 
 }
 
@@ -54,14 +128,94 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 40px;
 
 }
 
-.arrivalsproductssection > .arrivalsproduct > .box{
+.arrivalsproduct > .box{
 
-    height: 400px;
-    width: 100px;
+    height: 500px;
+    width: 300px;
     background-color: black;
+    box-shadow: 2px 2px 5px #2f2f2f;
+    overflow: hidden;
+    border-radius: 10px;
+
+}
+
+.box > .productimage{
+
+    background-color: #ffffff;
+    height: 70%;
+    width: 100%;
+    position: relative;
+
+}
+
+.productimage > a i{
+
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 99999999;
+    font-size: 25px;
+    transition: all 0.5s ease;
+
+}
+
+.productimage > a i:hover{
+
+   transform: scale(1.2);
+
+}
+
+.productimage > img{
+
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+.box > .productdetails{
+
+    height: 30%;
+    background-color: #2f2f2f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.productdetails > h2{
+
+    font-size: 20px;
+    color: #ffffff;
+
+}
+
+.productdetails > span{
+
+    color: #dedede;
+    font-size: 15px;
+
+}
+
+.productdetails > a button{
+
+    width: 150px;
+    background-color: snow;
+    border: 2px solid snow;
+    color: #1a1a1a;
+    border-radius: 5px;
+    height: 30px;
+    cursor: pointer;
 
 }
 
