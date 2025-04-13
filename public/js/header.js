@@ -460,7 +460,7 @@ sideMenuCloseIcon.addEventListener("click", () => {
 
 });
 
-thirdBoxIcons[3].addEventListener("click", () => {
+thirdBoxIcons[4].addEventListener("click", () => {
 
     // mainSideMenuSection.style.transform = "translateX(0px)";
     mainSideMenuSection.style.position = "fixed";

@@ -1,13 +1,15 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import env from 'dotenv';
-import pg from 'pg';
-import multer from 'multer';
-import crypto from 'crypto';
-import path from 'path';
-import bcrypt from 'bcrypt';
-import session from 'express-session';
-import passport from 'passport';
+import express from "express";
+import bodyParser from "body-parser";
+import env from "dotenv";
+import pg from "pg";
+import multer from "multer";
+import crypto from "crypto";
+import path from "path";
+import bcrypt from "bcrypt";
+import session from "express-session";
+import passport from "passport";
+import { Strategy } from "passport-local";
+import GoogleStrategy from "passport-google-oauth2";
 
 const app = express();
 const port = 3000;
@@ -24,111 +26,223 @@ const db = new pg.Client({
 db.connect();
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static("public"));
 
-app.use(session({
+app.use(
+  session({
+    secret: process.env.TOPSECRETWORD,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      
+      maxAge: 1000 * 60 * 60 * 24
 
-  secret: process.env.TOPSECRETWORD,
-  resave: false,
-  saveUninitialized: true
-
-}));
+    }
+  })
+);
 
 app.use(passport.initialize());
 app.use(passport.session());
 
 const storage = multer.diskStorage({
-
   destination: function (req, file, cb) {
-    
-    cb(null, './public/image/uploads');
-
+    cb(null, "./public/image/uploads");
   },
 
   filename: function (req, file, cb) {
-    
     crypto.randomBytes(12, function (err, bytes) {
-      
       const fn = bytes.toString("hex") + path.extname(file.originalname);
       cb(err, fn);
-
     });
-
-  }
-
+  },
 });
 
 const upload = multer({ storage: storage });
 
-app.get('/', async (req, res) => {
-
+app.get("/", async (req, res) => {
   let result = await db.query("SELECT * FROM newarrivalproduct");
   let getProduct = [];
   getProduct = result.rows;
-  res.render("index.ejs", {products: getProduct});
-
+  res.render("index.ejs", { products: getProduct });
 });
 
-app.get('/vionesseadmin', (req, res) => {
-
-    res.render('vionesseadmin.ejs');
-
+app.get("/vionesseadmin", (req, res) => {
+  if (req.isAuthenticated()) {
+    res.render("vionesseadmin.ejs");
+  } else {
+    res.redirect("/login");
+  }
 });
 
-app.get('/vionesseregister', (req, res) => {
-
-  res.render('vionesseregister.ejs');
-
+app.get("/vionesseregister", (req, res) => {
+  res.render("vionesseregister.ejs");
 });
 
-app.post("/uploadproductimage", upload.single("productimage"), async(req, res) => {
-  
-  let image = req.file.filename;
-  let imagefile = image;
-  let productName = req.body.productname;
-  let productPrice = req.body.productprice;
+app.get("/login", (req, res) => {
+  res.render("vionesselogin.ejs");
+});
 
-  const checkName = await db.query("SELECT * FROM newarrivalproduct WHERE productname = $1", [productName]);
+app.get("/logout", (req, res) => {
+  req.logout((err) => {
+    if (err) {
+      console.log(err);
+    }
 
-  if(checkName.rows.length > 0){
+    res.redirect("/login");
+  });
+});
 
-    res.send("Your product is already exists....");
+app.post("/register", async (req, res) => {
+  let fullname = req.body.fullname;
+  let email = req.body.email;
+  let password = req.body.password;
+
+  const checkUser = await db.query(
+    "SELECT * FROM vionesseadmin WHERE adminemail = $1",
+    [email]
+  );
+
+  if (checkUser.rows.length > 0) {
+    res.send("Sorry! You already exists....");
+  } else {
+    bcrypt.genSalt(10, (err, salt) => {
+      if (err) {
+        console.log(err);
+      }
+
+      bcrypt.hash(password, salt, async (err, hash) => {
+        if (err) {
+          console.log(err);
+        }
+
+        let registerUser = await db.query(
+          "INSERT INTO vionesseadmin(adminname, adminemail, adminpassword) VALUES($1, $2, $3) RETURNING *",
+          [fullname, email, hash]
+        );
+
+        let user = registerUser.rows[0];
+
+        req.login(user, function (err) {
+          if (err) {
+            console.log(err);
+          }
+
+          res.redirect("/vionesseadmin");
+        });
+      });
+    });
+  }
+});
+
+app.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "/vionesseadmin",
+    failureRedirect: "/login",
+  })
+);
+
+passport.use(
+  "local",
+  new Strategy(async function verify(username, password, cb) {
+    const checkUser = await db.query(
+      "SELECT * FROM vionesseadmin WHERE adminemail = $1",
+      [username]
+    );
+
+    if (checkUser.rows.length > 0) {
+      let user = checkUser.rows[0];
+      let userPassword = user.adminpassword;
+
+      bcrypt.compare(password, userPassword, (err, result) => {
+        if (err) {
+          return cb(err);
+        } else {
+          if (result) {
+            return cb(null, user);
+          } else {
+            return cb(null, false);
+          }
+        }
+      });
+    } else {
+      return cb("User not found....");
+    }
+  })
+);
+
+app.get("/auth/google", passport.authenticate("google", {
+
+  scope: ["profile", "email"]
+
+}));
+
+app.get("/auth/google/vionesseadmin", passport.authenticate("google", {
+
+  successRedirect: '/vionesseadmin',
+  failureRedirect: '/login'
+
+}));
+
+passport.use("google", new GoogleStrategy({
+
+  clientID: process.env.GOOGLE_CLIENT_ID,
+  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+  callbackURL: "http://localhost:3000/auth/google/vionesseadmin",
+  userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
+
+}, async (accessToken, refreshToken, profile, cb) => {
+
+  const getGoogleUser = await db.query("SELECT * FROM vionesseadmin WHERE adminemail = $1", [profile.email]);
+
+  if (getGoogleUser.rows.length === 0) {
+    
+    const checkGooogleUser = await db.query("INSERT INTO vionesseadmin(adminname, adminemail, adminpassword) VALUES($1, $2, $3)", [profile.given_name, profile.email, "google"]);
+
+    return cb(null, checkGooogleUser.rows);
 
   } else {
     
-    await db.query("INSERT INTO newarrivalproduct(productimage, productname, productprice) VALUES($1, $2, $3)", [imagefile, productName, productPrice]);
-    res.redirect('/vionesseadmin');
+    return cb(null, getGoogleUser.rows);
 
   }
 
+}));
+
+passport.serializeUser((user, cb) => {
+  cb(null, user);
 });
 
-// app.post("/uploadproductdetails", async (req, res) => {
+passport.deserializeUser((user, cb) => {
+  cb(null, user);
+});
 
-//   let productName = req.body.productname;
-//   let productPrice = req.body.productprice;
+app.post(
+  "/uploadproductimage",
+  upload.single("productimage"),
+  async (req, res) => {
+    let image = req.file.filename;
+    let imagefile = image;
+    let productName = req.body.productname;
+    let productPrice = req.body.productprice;
 
-//   console.log(productName);
-//   console.log(productPrice);
+    const checkName = await db.query(
+      "SELECT * FROM newarrivalproduct WHERE productname = $1",
+      [productName]
+    );
 
-//   let checkProduct = await db.query(
-//     "SELECT * FROM newarrivalproduct WHERE productname = $1",
-//     [productName]
-//   );
-
-//   if (checkProduct.rows.length > 0) {
-//     res.send("Product already exists. Please add another product....");
-//   } else {
-//     await db.query(
-//       "INSERT INTO newarrivalproduct(productimage, productname, productprice) VALUES($1, $2)",
-//       [productName, productPrice]
-//     );
-//     res.redirect("/vionesseadmin");
-//   }
-// });
+    if (checkName.rows.length > 0) {
+      res.send("Your product is already exists....");
+    } else {
+      await db.query(
+        "INSERT INTO newarrivalproduct(productimage, productname, productprice) VALUES($1, $2, $3)",
+        [imagefile, productName, productPrice]
+      );
+      res.redirect("/vionesseadmin");
+    }
+  }
+);
 
 app.listen(port, () => {
-
-    console.log(`Server is started on ${port} port`);
-
+  console.log(`Server is started on ${port} port`);
 });

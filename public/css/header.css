@@ -54,6 +54,10 @@ header > .box1{
 header > .box2{
 
     position: relative;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
 
@@ -61,8 +65,8 @@ header > .box2{
 
     position: absolute;
     top: 300%;
-    left: 49%;
-    transform: translate(-46%, 20%);
+    left: 63%;
+    transform: translate(-49%, 20%);
     font-size: 200px;
     color: #ffffff;
     letter-spacing: 30px;

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/vionesselogin.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+    <title>VIONESSE - LOGIN</title>
+</head>
+<body>
+    
+    <div class="loginsection">
+
+        <h1> VIONESSE </h1>
+        
+        <div class="login">
+
+            <form action="/login" method="post">
+
+                <label for="email"> Email </label>
+                <input type="email" placeholder="Enter Your Email" name="username" required> 
+                <label for="password"> Password </label>
+                <input type="password" placeholder="Enter Your Password" name="password" required>
+                
+                <div class="loginlinks">
+
+                    <input type="submit" value="LOGIN">
+                    <a href="/vionesseregister"> Crate an account ? </a>
+                    <a href="/auth/google"> <i class="ri-google-fill"></i> Sign Up With Google </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

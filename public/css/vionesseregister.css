@@ -43,18 +43,79 @@ body{
 
     width: 800px;
     height: 400px;
-    background-color: black;
+    background-color: #1a1a1a;
+    border-radius: 5px
+    
 
 }
 
 .registerbox > form{
 
-    width: 100%;
+    padding-left: 20px;
     height: 100%;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;
+
+}
+
+.registerbox > form label{
+
+    color: snow;
+    font-size: 20px;
+    margin-bottom: 10px;
+
+}
+
+form > input{
+
+    margin-bottom: 30px;
+    width: 700px;
+    height: 40px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    background-color: snow;
+
+}
+
+.registerlinkbox{
+
+    display: flex;
     gap: 50px;
+    align-items: center;
+
+}
+
+.registerlinkbox > input{
+
+    width: 200px;
+    height: 30px;
+    background-color: snow;
+    cursor: pointer;
+    font-size: 15px;
+    border: none;
+    outline: none;
+
+}
+
+.registerlinkbox > a:nth-child(2){
+
+    background-color: snow;
+    width: 100px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    text-decoration: none;
+    color: #1a1a1a;
+
+}
+.registerlinkbox > a:nth-child(3){
+
+    color: snow;
+    text-decoration: none;
+    font-size: 15px;
 
 }
