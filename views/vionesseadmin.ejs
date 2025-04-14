@@ -28,6 +28,8 @@
                         <li>SLIDER</li>
                         <li>NEW ARRIVALS</li>
                         <li> RETRO POLO </li>
+                        <li>DELETE HOME ARRIVALS PRODUCTS</li>
+                        <li>DELETE HOME RETRO PRODUCTS</li>
                         <li>CONTENT</li>
 
                     </ul>
@@ -69,6 +71,47 @@
                                 <input type="submit" value="Submit">
 
                             </form>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Home Arrival Product Delete Section -->
+                    <div class="deletearrivalproduct">
+
+                        <div class="deleteheading"> 
+
+                            <h2> Home Arrival Products: </h2>
+
+                        </div>
+
+                        <div class="deletearrival">
+
+                            <% arrivalproduct.forEach((arrivals) => { %> 
+                               
+                                <div class="deletearrivalbox">
+
+                                    <div class="imagebox">
+
+                                        <img src="/image/uploads/<%= arrivals.productimage%>" alt>
+
+                                    </div>
+                                    <div class="contentbox">
+
+                                        <h3><%= arrivals.productname %></h3>
+                                        <span> Rs. <%= arrivals.productprice %></span>
+
+                                        <div class="deleteproductbtn">
+
+                                            <a href="/delete/arrival/<%=arrivals.id%>"><button> Delete Product </button></a>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                
+                            <% }) %>
 
                         </div>
 

@@ -74,12 +74,25 @@ app.get("/", async (req, res) => {
   res.render("index.ejs", { products: getProduct, retroproduct: getRetroProduct});
 });
 
-app.get("/vionesseadmin", (req, res) => {
+app.get("/vionesseadmin", async (req, res) => {
   if (req.isAuthenticated()) {
-    res.render("vionesseadmin.ejs");
+
+    let getArrivalProducts = await db.query("SELECT * FROM newarrivalproduct");
+    let getArrivals = [];
+    getArrivals = getArrivalProducts.rows;
+
+    res.render("vionesseadmin.ejs", {arrivalproduct: getArrivals});
   } else {
     res.redirect("/login");
   }
+});
+
+app.get('/delete/arrival/:id', async (req, res) => {
+  
+  let deleteArrivalProductId = req.params.id; 
+  await db.query("DELETE FROM newarrivalproduct WHERE id = $1", [deleteArrivalProductId]);
+  res.redirect('/vionesseadmin');
+
 });
 
 app.get("/vionesseregister", (req, res) => {

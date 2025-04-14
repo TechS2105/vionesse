@@ -239,3 +239,106 @@ form > input:nth-child(4){
     cursor: pointer;
 
 }
+
+/** New Arrival Product Deletes */
+.deletearrivalproduct{
+
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.deletearrivalproduct > .deleteheading{
+
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+
+}
+
+.deleteheading > h2{
+
+    padding-left: 20px;
+    font-size: 24px;
+
+}
+
+.deletearrivalproduct > .deletearrival{
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+    margin-left: 20px;
+    padding-top: 30px;
+
+}
+
+.deletearrival > .deletearrivalbox{
+
+    height: 400px;
+    width: 250px;
+    background-color: #1a1a1a;
+
+}
+
+.deletearrivalbox > .imagebox{
+
+    height: 300px;
+    width: 100%;
+    background-color: #ebebeb;
+
+}
+
+.imagebox > img{
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+}
+
+.deletearrivalbox > .contentbox{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+    gap: 5px;
+
+}
+
+.contentbox > h3{
+
+    font-size: 18px;
+    color: #ffffff;
+
+}
+
+.contentbox > span{
+
+    color: #ebebeb;
+    font-size: 15px;
+
+}
+
+.contentbox .deleteproductbtn> a button{
+
+    width: 150px;
+    height: 25px;
+    background-color: #ffffff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+}
+
+
