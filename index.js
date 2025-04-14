@@ -60,10 +60,18 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 app.get("/", async (req, res) => {
+
+  // new arrival product
   let result = await db.query("SELECT * FROM newarrivalproduct");
   let getProduct = [];
   getProduct = result.rows;
-  res.render("index.ejs", { products: getProduct });
+
+  // retro polo product
+  let getRetroPolo = await db.query("SELECT * FROM retropoloproduct");
+  let getRetroProduct = [];
+  getRetroProduct = getRetroPolo.rows;
+
+  res.render("index.ejs", { products: getProduct, retroproduct: getRetroProduct});
 });
 
 app.get("/vionesseadmin", (req, res) => {
@@ -242,6 +250,34 @@ app.post(
     }
   }
 );
+
+app.post("/uploadretroproduct", upload.single("retroimage"), async (req, res) => {
+  
+  let image = req.file.filename;
+  let retroProductImage = image;
+  let retroProductName = req.body.retroproductname;
+  let retroproductPrice = req.body.retroproductprice;
+
+  const checkproductname = await db.query(
+    "SELECT * FROM retropoloproduct WHERE productname = $1",
+    [retroProductName]
+  );
+
+  if (checkproductname.rows.length > 0) {
+    
+    res.send("Sorry! This product is already exists....");
+
+  } else {
+    
+    await db.query(
+      "INSERT INTO retropoloproduct(productimage, productname, porductprice) VALUES($1, $2, $3)",
+      [retroProductImage, retroProductName, retroproductPrice]
+    );
+    res.redirect("/vionesseadmin");
+
+  }
+
+});
 
 app.listen(port, () => {
   console.log(`Server is started on ${port} port`);

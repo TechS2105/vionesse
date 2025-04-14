@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
     rel="stylesheet"/>
     <link rel="stylesheet" href="/css/newarrivals.css">
+    <link rel="stylesheet" href="/css/style.css">
     <title>VIONESSE</title>
 </head>
 <body>
@@ -66,6 +67,101 @@
     </div>
 
     <%- include("../views/partials/fashionbanner.ejs") %>
+
+    <!-- Retro Polo Shirt Section -->
+    <div class="retroplosection">
+
+        <div class="retropolo">
+
+            <div class="retropoloheading">
+
+                <h2> Retro Polo </h2>
+
+            </div>
+            <div class="retropoloproduct">
+
+                <div class="retroproduct">
+
+                    <div class="retroproductbox">
+
+                        <% retroproduct.forEach((product) => { %>
+
+                            <div class="retrobox">
+
+                                <div class="retroboximage">
+
+                                    <a href="#"><i class="ri-heart-2-line"></i></a>
+                                    <img src="/image/uploads/<%=product.productimage%>" alt="">
+
+                                </div>
+                                <div class="retroboxcontent">
+
+                                    <h2><%=product.productname%></h2>
+                                    <p>Rs. <%=product.porductprice%></p>
+                                    <a href="#"><button>Add To Cart</button></a>
+
+                                </div>
+
+                            </div>
+
+                        <% }) %>
+                    
+                    </div>
+
+                    <div class="retrobuttonsection">
+
+                        <a href="#"><button> VIEW MORE RETRO POLO</button></a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+
+        let scrollerDiv = document.createElement("div");
+        let addClass = scrollerDiv.classList.add("scroller");
+        let body = document.querySelector("body");
+        let scrollerIcon = document.querySelector(".scroller i");
+
+        body.prepend(scrollerDiv);
+
+        scrollerDiv.style.transform = "scale(0)";
+        scrollerDiv.style.opacity = "0";
+
+        scrollerDiv.innerHTML = `<i class="ri-arrow-up-double-line"></i>`;
+
+        scrollerDiv.addEventListener("click", () => {
+
+            $(window).scrollTop(0);
+
+        });
+
+        window.addEventListener("scroll", () => {
+
+            if(window.scrollY > 500){
+
+                scrollerDiv.style.transform = "scale(1)";
+                scrollerDiv.style.transition = "all 0.7s ease";
+                scrollerDiv.style.opacity = "1";
+
+            }else{
+
+                scrollerDiv.style.transform = "scale(0)";
+                scrollerDiv.style.transition = "all 0.7s ease";
+                scrollerDiv.style.opacity = "0";
+
+            }
+
+        });
+
+    </script>
 
 </body>
 </html>

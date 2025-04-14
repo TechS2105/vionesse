@@ -27,6 +27,7 @@
                         <li>ADMIN PROFILE</li>
                         <li>SLIDER</li>
                         <li>NEW ARRIVALS</li>
+                        <li> RETRO POLO </li>
                         <li>CONTENT</li>
 
                     </ul>
@@ -53,6 +54,26 @@
 
                     </div>
 
+                    <!-- Retro Polo Section -->
+                    <div class="retropolosection">
+
+                        <div class="retropolobox">
+
+                            <h2> Retro Polo Product Details: </h2><br>
+                            
+                            <form action="/uploadretroproduct" method="post" enctype="multipart/form-data">
+
+                                <input type="file" name="retroimage" placeholder="Choose an image" required>
+                                <input type="text" name="retroproductname" placeholder="Enter Your Product Name" required>
+                                <input type="text" name="retroproductprice" placeholder="Enter Your Product Price" required>
+                                <input type="submit" value="Submit">
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
                 </div>
 
             </div>
@@ -60,6 +81,9 @@
         </div>
 
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/js/vionesseadmin.js"></script>
 
 </body>
 </html>

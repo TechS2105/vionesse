@@ -6,7 +6,7 @@ window.addEventListener("scroll", () => {
 
     if (window.innerWidth > 600) {
         
-        if (window.scrollY > 1500) {
+        if (window.scrollY > 1300) {
             
             fashionBannerImage.style.opacity = "1";
             fashionBannerImage.style.transition = "all 0.7s ease";
