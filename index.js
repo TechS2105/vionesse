@@ -34,15 +34,17 @@ db.connect();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.set("trust proxy", 1);
 
 app.use(
   session({
     secret: process.env.TOPSECRETWORD,
-    resave: true,
+    resave: false,
     saveUninitialized: true,
     cookie: {
       
-      maxAge: 1000 * 60 * 60 * 24
+      maxAge: 1000 * 60 * 60 * 24,
+      secure: true
 
     }
   })
