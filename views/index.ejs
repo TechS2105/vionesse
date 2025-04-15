@@ -37,7 +37,7 @@
                             <div class="productimage">
 
                                 <a href="#"><i class="ri-heart-2-line"></i></a>
-                                <img src="/image/uploads/<%= product.productimage %>" alt="">
+                                <img src="/image/uploads/<%= product.productimage %>" alt>
 
                             </div>
                             <div class="productdetails">
@@ -121,6 +121,9 @@
         </div>
 
     </div>
+
+    <%- include("../views/partials/service.ejs") %>
+    <%- include("../views/partials/newsletter.ejs") %>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>

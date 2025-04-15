@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/wishlist.css">
+    <title>VIONESSE - WISHLIST</title>
+</head>
+<body>
+    
+    <%- include("../views/partials/otherpageheader.ejs") %> 
+
+    <div class="wishlistlinks"> 
+
+        <p> <a href="/">Home</a><span>/</span> Wishlist </p>
+
+    </div>
+
+    <div class="wishlistsection">
+
+        <div class="wishlistimage">
+
+            <img src="/image/uploads/1ab6abd496550b84e1aa9dcf.jpg" alt="">
+
+        </div>
+        <div class="wishlistcontent">
+
+            <p id="p01"><%=selectproduct.productname%></p>
+            <p id="p02"> Rs. <%=selectproduct.productprice%></p>
+            <a href="#">Remove</a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
