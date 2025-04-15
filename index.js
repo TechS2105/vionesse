@@ -38,7 +38,7 @@ app.use(express.static("public"));
 app.use(
   session({
     secret: process.env.TOPSECRETWORD,
-    resave: false,
+    resave: true,
     saveUninitialized: true,
     cookie: {
       
