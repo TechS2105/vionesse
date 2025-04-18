@@ -348,4 +348,66 @@ form > input:nth-child(4){
 
 }
 
+/** Newsletter Subscription Section */
+.newslettersection {
+
+    width: 100%;
+    height: 100%;
+
+}
+
+.newslettersection > .newsletter{
+
+    padding-top: 20px;
+    padding-left: 20px;
+
+}
+
+.newsletter > .newsletterheading{
+
+    height: 50px;
+    display: flex;
+    align-items: center;
+
+}
+
+.newsletter > .newsletterheading h2{
+
+    font-size: 25px;
+
+}
+
+.newsletter > .newslettertable{
+
+    overflow-y: scroll;
+    height: 500px;
+    background-color: #ebebeb;
+
+
+}
+
+table{
+
+    width: 100%;
+
+}
+
+table, tr, th, td{
+
+    border: 1px solid snow;
+    border-collapse: collapse;
+    height: 50px;
+    color: #1a1a1a;
+    text-align: center;
+
+}
+
+td > a{
+
+    color: crimson;
+    font-size: 20px;
+    text-decoration: none;
+
+}
+
 

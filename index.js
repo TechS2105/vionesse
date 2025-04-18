@@ -89,7 +89,11 @@ app.get("/vionesseadmin", async (req, res) => {
     let getArrivals = [];
     getArrivals = getArrivalProducts.rows;
 
-    res.render("vionesseadmin.ejs", {arrivalproduct: getArrivals});
+    let getNewsLetterSubscriber = await db.query("SELECT * FROM newsletter");
+    let getSubscribers = [];
+    getSubscribers = getNewsLetterSubscriber.rows;
+
+    res.render("vionesseadmin.ejs", {arrivalproduct: getArrivals, newslettersubscriber: getSubscribers});
   } else {
     res.redirect("/login");
   }
@@ -119,6 +123,32 @@ app.get("/logout", (req, res) => {
 
     res.redirect("/login");
   });
+});
+
+app.get('/delete/subscriber/:id', async (req, res) => {
+  
+  await db.query("DELETE FROM newsletter WHERE id = $1", [req.params.id]);
+  res.redirect('/vionesseadmin');
+
+});
+
+app.post("/thankyou", async (req, res) => {
+
+  let newsLetterEmail = req.body.email;
+
+  const checkMail = await db.query("SELECT * FROM newsletter WHERE email = $1", [newsLetterEmail]);
+
+  if (checkMail.rows.length > 0) {
+    
+    res.send("Mail is already exists...");
+
+  } else {
+    
+    await db.query("INSERT INTO newsletter(email) VALUES($1)", [newsLetterEmail]);
+    res.redirect('/');
+
+  }
+
 });
 
 app.post("/register", async (req, res) => {

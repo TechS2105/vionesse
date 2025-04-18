@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/vionesseadmin.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"/>
 </head>
 <body>
     
@@ -30,6 +32,7 @@
                         <li> RETRO POLO </li>
                         <li>DELETE HOME ARRIVALS PRODUCTS</li>
                         <li>DELETE HOME RETRO PRODUCTS</li>
+                        <li>NEWSLETTER SUBSCRIPTION</li>
                         <li>CONTENT</li>
 
                     </ul>
@@ -57,7 +60,7 @@
                     </div>
 
                     <!-- Retro Polo Section -->
-                    <div class="retropolosection">
+                    <div class="retropolosection" style="display: none;">
 
                         <div class="retropolobox">
 
@@ -77,7 +80,7 @@
                     </div>
 
                     <!-- Home Arrival Product Delete Section -->
-                    <div class="deletearrivalproduct">
+                    <div class="deletearrivalproduct" style="display: none;">
 
                         <div class="deleteheading"> 
 
@@ -112,6 +115,48 @@
                                 </div>
                                 
                             <% }) %>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Newsletter Section -->
+                    <div class="newslettersection">
+
+                        <div class="newsletter">
+
+                            <div class="newsletterheading">
+
+                                <h2> News Letter Subscribers: </h2>
+
+                            </div>
+                            <div class="newslettertable">
+
+                                <table>
+
+                                    <tr>
+
+                                        <th> Subscriber ID</th>
+                                        <th> Subscriber Email</th>
+                                        <th> Delete Subscriber </th>
+
+                                    </tr>
+
+                                    <% newslettersubscriber.forEach((subscriber) => { %>
+
+                                        <tr>
+
+                                            <td><%= subscriber.id %></td>
+                                            <td><%= subscriber.email%></td>
+                                            <td><a href="/delete/subscriber/<%=subscriber.id%>"><i class="ri-delete-bin-line"></i></a></td>
+
+                                        </tr>
+
+                                    <% }) %>
+
+                                </table>
+
+                            </div>
 
                         </div>
 
